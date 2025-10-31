@@ -122,7 +122,7 @@ sudo nano /etc/nginx/sites-available/django_app
 
 
 Inserisci:
-
+}
 server {
     listen 80;
     server_name tuo-dominio.com 192.168.x.x;
@@ -137,7 +137,7 @@ server {
         proxy_pass http://127.0.0.1:8000;
     }
 }
-
+}
 
 Attiva la configurazione:
 
