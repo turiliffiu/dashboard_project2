@@ -41,11 +41,8 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 Accedi via SSH o console:
 
-`codice inline`
-
-*** ssh utente@ip_server ***
-
+`ssh utente@ip_server`
 
 Aggiorna il sistema:
 
-sudo apt update && sudo apt upgrade -y
+`sudo apt update && sudo apt upgrade -y`
