@@ -45,10 +45,9 @@ Accedi via SSH o console:
 
 Aggiorna il sistema:
 
-`sudo apt update && sudo apt upgrade -y`
-
 ## 🧰 2️⃣ — Installa i pacchetti necessari
-`sudo apt install python3 python3-venv python3-pip git nginx -y`
+`sudo apt update && sudo apt upgrade -y` <br>
+`sudo apt install python3 python3-venv python3-pip git nginx -y` <br>
 
 ## 🧬 3️⃣ — Clone progetto
 
