@@ -1,0 +1,13 @@
+[Ricetta]
+Crema bianca
+
+COMANDO: Ingredienti
+Latte
+Amido
+Zucchero
+
+COMANDO: Procedura
+Mettere il latte
+Bollire
+Mescolare
+Cacacare
