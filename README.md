@@ -50,10 +50,6 @@ Aggiorna il sistema:
 `sudo apt install python3 python3-venv python3-pip git nginx -y` <br>
 
 ## 🧬 3️⃣ — Clone progetto
-
-
-
-### 2. Clone progetto
 `cd /opt` <br>
 `sudo mkdir dashboard` <br>
 `sudo chown $USER:$USER dashboard` <br>
@@ -83,23 +79,18 @@ Esempio:
 `ALLOWED_HOSTS=127.0.0.1,localhost,tuo-dominio.com` <br>
 `DATABASE_URL=sqlite:///db.sqlite3` <br>
 
-
-
-
-
-2. Esegui le migrazioni e raccogli statici
+### Esegui le migrazioni e raccogli statici
 `python manage.py migrate` <br>
 `python manage.py collectstatic --noinput` <br>
 `python manage.py createsuperuser` <br>
  
-4. Testa il server Django (verifica che funzioni)
+### Testa il server Django (verifica che funzioni)
 `python manage.py runserver 0.0.0.0:8000`
 
 
 Apri il browser e vai su:
 
 `http://IP_del_server:8000`
-
 
 Se vedi il tuo sito Django → funziona!
 
@@ -121,25 +112,45 @@ Prova a eseguire l’app:
 
 Crea un file di configurazione:
 
-`sudo nano /etc/nginx/sites-available/django_app`
-
+`sudo nano /etc/nginx/sites-available/dashboard`
 
 Inserisci:
 
-server {
-    listen 80;
-    server_name tuo-dominio.com 192.168.x.x;
+     upstream dashboard {
+         server 127.0.0.1:8000 fail_timeout=0;
+     }
+     
+     server {
+         listen 80;
+         server_name 192.168.1.10 dashboard.local;
+         
+         client_max_body_size 10M;
+         
+         location /static/ {
+             alias /opt/dashboard/app/staticfiles/;
+             expires 30d;
+             add_header Cache-Control "public, immutable";
+         }
+         
+         location /media/ {
+             alias /opt/dashboard/app/media/;
+             expires 7d;
+         }
+         
+         location / {
+             proxy_pass http://dashboard;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header Host $host;
+             proxy_redirect off;
+         }
+     }
 
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location /static/ {
-        root /var/www/<nome-repo>;
-    }
+# Abilita site
+`sudo ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
+`sudo nginx -t` <br>
+`sudo systemctl restart nginx` <br>
 
-    location / {
-        include proxy_params;
-        proxy_pass http://127.0.0.1:8000;
-    }
-}
+
 
 
 Attiva la configurazione:
@@ -165,19 +176,19 @@ Crea un servizio systemd:
 
 Contenuto:
 
-[Unit]
-Description=Gunicorn service per Django
-After=network.target
-
-[Service]
-User=www-data
-Group=www-data
-WorkingDirectory=/var/www/<nome-repo>
-Environment="PATH=/var/www/<nome-repo>/venv/bin"
-ExecStart=/var/www/<nome-repo>/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 nome_progetto.wsgi:application
-
-[Install]
-WantedBy=multi-user.target
+       [Unit]
+       Description=Gunicorn service per Django
+       After=network.target
+       
+       [Service]
+       User=www-data
+       Group=www-data
+       WorkingDirectory=/var/www/<nome-repo>
+       Environment="PATH=/var/www/<nome-repo>/venv/bin"
+       ExecStart=/var/www/<nome-repo>/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 nome_progetto.wsgi:application
+       
+       [Install]
+       WantedBy=multi-user.target
 
 
 Avvia e abilita:
