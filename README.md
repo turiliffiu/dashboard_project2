@@ -37,7 +37,7 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 - Rete: NAT o Bridge con IP statico
 
-* Dopo l’installazione: *
+### Dopo l’installazione:
 
 ** Accedi via SSH o console: **
 
