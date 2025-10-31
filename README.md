@@ -39,7 +39,9 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 ### Dopo l’installazione:
 
-** Accedi via SSH o console: **
+Accedi via SSH o console:
+
+`codice inline`
 
 *** ssh utente@ip_server ***
 
