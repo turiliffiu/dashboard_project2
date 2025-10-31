@@ -27,7 +27,7 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 🧩 (Opzionale) Automatizzare l’avvio con systemd
 
 ## 🪟 1️⃣ — Preparazione VM su Proxmox
-Crea una VM Ubuntu/Debian:
+### Crea una VM Ubuntu/Debian:
 
 - CPU: 2 core
 
