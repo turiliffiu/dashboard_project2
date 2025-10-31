@@ -29,13 +29,13 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 ## 🪟 1️⃣ — Preparazione VM su Proxmox
 Crea una VM Ubuntu/Debian:
 
-CPU: 2 core
+- CPU: 2 core
 
-RAM: 2–4 GB
+- RAM: 2–4 GB
 
-Disco: 10–20 GB
+- Disco: 10–20 GB
 
-Rete: NAT o Bridge con IP statico
+- Rete: NAT o Bridge con IP statico
 
 Dopo l’installazione:
 
