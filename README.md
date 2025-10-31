@@ -61,7 +61,7 @@ Aggiorna il sistema:
 `cd dashboard` <br>
 
 ### Se hai Git repository
-`git clone https://your-repo.git app` <br>
+`git clone https://github.com/turiliffiu/dashboard_project2.git` <br>
 
 Ora la struttura del progetto Django sarà disponibile sul server
 
