@@ -2,7 +2,7 @@
 
 Dashboard è un'applicazione web che permette di conservare e riutilizzare delle procedure operative con il semplice copia e incolla
 
-## Obiettivi principali
+## 🎯 Obiettivi principali
 
 - primo
 
@@ -24,7 +24,7 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 🌐 Esporre il sito con Nginx come reverse proxy
 
-🧩 (Opzionale) Automatizzare l’avvio con systemd
+🧩 Automatizzare l’avvio con systemd
 
 ## 🪟 1️⃣ — Preparazione VM su Proxmox
 ### Crea una VM Ubuntu/Debian:
