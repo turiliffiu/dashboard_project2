@@ -37,11 +37,11 @@ Crea una VM Ubuntu/Debian:
 
 - Rete: NAT o Bridge con IP statico
 
-Dopo l’installazione:
+* Dopo l’installazione:
 
-Accedi via SSH o console:
+** Accedi via SSH o console:
 
-ssh utente@ip_server
+*** ssh utente@ip_server
 
 
 Aggiorna il sistema:
