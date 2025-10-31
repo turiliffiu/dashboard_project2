@@ -56,66 +56,43 @@ Aggiorna il sistema:
 ### 2. Clone progetto
 `cd /opt` <br>
 `sudo mkdir dashboard` <br>
-`sudo chown admin:admin dashboard` <br>
+`sudo chown $USER:$USER dashboard` <br>
 `cd dashboard` <br>
 
-### Se hai Git repository
+### Clone da Git repository
 `git clone https://github.com/turiliffiu/dashboard_project2.git` <br>
 
 Ora la struttura del progetto Django sarà disponibile sul server
 
-### 3. Setup virtual environment
-`cd app` <br>
-`python3.11 -m venv venv` <br>
-`source venv/bin/activate` <br>
-
-### 4. Installa dipendenze
-`pip install -r requirements.txt` <br>
-
-### 5. Configura .env
-`cp .env.example .env` <br>
-`nano .env` <br>
-
-### 6. Migrazioni
-`python manage.py migrate`
-
-### 7. Collectstatic
-`python manage.py collectstatic --noinput`
-
-### 8. Crea superuser
-`python manage.py createsuperuser`
-
-
-
 
 ## 🐍 4️⃣ — Crea ambiente virtuale Python
-`python3 -m venv venv` <br>
+`python3.11 -m venv venv` <br>
 `source venv/bin/activate` <br>
-
-
-Installa i pacchetti del progetto (devono essere elencati in 'requirements.txt'):
-
 `pip install --upgrade pip` <br>
 `pip install -r requirements.txt` <br>
 
+
 ## ⚙️ 5️⃣ — Configura Django
-1. Crea il file .env (se usi variabili d’ambiente)
+Crea il file .env 
+`nano .env` <br>
 
 Esempio:
 
-DEBUG=False
-SECRET_KEY=metti_una_chiave_sicura
-ALLOWED_HOSTS=127.0.0.1,localhost,tuo-dominio.com
-DATABASE_URL=sqlite:///db.sqlite3
+`DEBUG=False` <br>
+`SECRET_KEY=metti_una_chiave_sicura` <br>
+`ALLOWED_HOSTS=127.0.0.1,localhost,tuo-dominio.com` <br>
+`DATABASE_URL=sqlite:///db.sqlite3` <br>
 
 
-(Non committare questo file su GitHub.)
+
+
 
 2. Esegui le migrazioni e raccogli statici
 `python manage.py migrate` <br>
 `python manage.py collectstatic --noinput` <br>
-
-3. Testa il server Django (verifica che funzioni)
+`python manage.py createsuperuser` <br>
+ 
+4. Testa il server Django (verifica che funzioni)
 `python manage.py runserver 0.0.0.0:8000`
 
 
@@ -179,7 +156,7 @@ Controlla se funziona aprendo:
 
 Dovresti vedere la tua app Django servita tramite Nginx ✅
 
-## ⚙️ 8️⃣ — (Opzionale ma consigliato) Automatizza Gunicorn con systemd
+## ⚙️ 8️⃣ — Automatizzazione Gunicorn con systemd
 
 Crea un servizio systemd:
 
