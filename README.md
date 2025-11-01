@@ -12,7 +12,7 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 ✅ Preparare il server su Proxmox
 
-🧱 Installare dipendenze (Python, Git, virtualenv, Nginx, ecc.)
+🧱 Installare i pacchetti necessari (Python, Git, virtualenv, Nginx, ecc.)
 
 📦 Clonare il progetto da GitHub
 
@@ -26,7 +26,7 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 🧩 Automatizzare l’avvio con systemd
 
-## 🪟 1️⃣ — Preparazione VM su Proxmox
+## 🪟 1️⃣ — Preparare il server su Proxmox
 ### Crea una VM Ubuntu/Debian:
 
 - CPU: 2 core
@@ -37,33 +37,53 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 
 - Rete: NAT o Bridge con IP statico
 
-### Dopo l’installazione:
+## 🧰 2️⃣ — Installare i pacchetti necessari
+### SSH nella VM
+`ssh admin@192.168.1.xxx` <br>
 
-Accedi via SSH o console:
-
-`ssh admin@192.168.1.xxx`
-
-Aggiorna il sistema:
-
-## 🧰 2️⃣ — Installa i pacchetti necessari
+### 1. Aggiorna sistema
 `sudo apt update && sudo apt upgrade -y` <br>
-`sudo apt install python3 python3-venv python3-pip git nginx -y` <br>
 
-## 🧬 3️⃣ — Clone progetto
-`cd /opt` <br>
-`sudo mkdir dashboard` <br>
-`sudo chown $USER:$USER dashboard` <br>
-`cd dashboard` <br>
+### 2. Installa Python 3.11
+`sudo apt install python3.11 python3.11-venv python3.11-dev -y` <br>
+`sudo apt install python3-pip build-essential libpq-dev -y` <br>
 
-### Clone da Git repository
+### 3. Installa NGINX
+`sudo apt install nginx -y` <br>
+`sudo systemctl enable nginx` <br>
+
+### 4. Installa Redis
+`sudo apt install redis-server -y` <br>
+`sudo systemctl enable redis-server` <br>
+
+### 5. Installa supervisor (per gestire processi)
+`sudo apt install supervisor -y` <br>
+`sudo systemctl enable supervisor` <br>
+
+### 6. Installa Git
+`sudo apt install git -y` <br>
+
+### 7. Crea utente applicativo
+`sudo adduser --system --group --home /opt/dashboard dashboard` <br>
+`sudo mkdir -p /opt/dashboard` <br>
+`sudo chown dashboard:dashboard /opt/dashboard` <br>
+
+## 🧬 3️⃣ — Clonare il progetto da GitHub
+### 1. Diventa utente dashboard
+`sudo su - dashboard` <br>
+
+### 2. Clona repository
+`cd /opt/dashboard` <br>
 `git clone https://github.com/turiliffiu/dashboard_project2.git` <br>
 
 Ora la struttura del progetto Django sarà disponibile sul server
 
-
-## 🐍 4️⃣ — Crea ambiente virtuale Python
+## 🐍 4️⃣ — Creare l’ambiente virtuale e installare le dipendenze
+### 1. Crea virtual environment
 `python3.11 -m venv venv` <br>
 `source venv/bin/activate` <br>
+
+### 2. Installa dipendenze
 `pip install --upgrade pip` <br>
 `pip install -r requirements.txt` <br>
 
