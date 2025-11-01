@@ -88,11 +88,12 @@ Ora la struttura del progetto Django sarà disponibile sul server
 `pip install -r requirements.txt` <br>
 
 
-## ⚙️ 5️⃣ — Configura Django
-Crea il file .env 
+## ⚙️ 5️⃣ — Configurare Django
+### Crea il file `.env`
+
 `nano .env` <br>
 
-Esempio:
+Scrivi:
 
 `DEBUG=False` <br>
 `SECRET_KEY=metti_una_chiave_sicura` <br>
@@ -142,7 +143,7 @@ Inserisci:
      
      server {
          listen 80;
-         server_name 192.168.1.10 dashboard.local;
+         server_name 192.168.1.xxx dashboard.local;
          
          client_max_body_size 10M;
          
@@ -165,20 +166,10 @@ Inserisci:
          }
      }
 
-# Abilita site
+# Attiva la configurazione
 `sudo ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
 `sudo nginx -t` <br>
 `sudo systemctl restart nginx` <br>
-
-
-
-
-Attiva la configurazione:
-
-`sudo ln -s /etc/nginx/sites-available/django_app /etc/nginx/sites-enabled` <br>
-`sudo nginx -t` <br>
-`sudo systemctl restart nginx` <br>
-
 
 Controlla se funziona aprendo:
 
