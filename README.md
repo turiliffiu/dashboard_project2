@@ -157,7 +157,7 @@ Prova a eseguire l’app:
 
 Crea un file di configurazione da utente `root`:
 
-`sudo nano /etc/nginx/sites-available/dashboard`
+`nano /etc/nginx/sites-available/dashboard`
 
 Inserisci:
 
@@ -198,16 +198,17 @@ Inserisci:
      }
 
 # Attiva la configurazione
-`sudo ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
-`sudo rm /etc/nginx/sites-enabled/default` <br>
-`sudo chmod -R 755 /opt/dashboard/staticfiles` <br>
-`sudo chown -R dashboard:dashboard /opt/dashboard/staticfiles` <br>
-`sudo nginx -t` <br>
-`sudo systemctl restart nginx` <br>
-`sudo systemctl status nginx` <br>
+`ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
+`rm /etc/nginx/sites-enabled/default` <br>
+`chmod -R 755 /opt/dashboard/staticfiles` <br>
+`chown -R dashboard:dashboard /opt/dashboard/staticfiles` <br>
+`nginx -t` <br>
+`systemctl restart nginx` <br>
+`systemctl status nginx` <br>
 
 Torna all'utente dashboard:
 
+`sudo su - dashboard` <br>
 `cd /opt/dashboard` <br>
 `source venv/bin/activate` <br>  
 
