@@ -116,7 +116,7 @@ Scrivi:
      STATIC_ROOT=/opt/dashboard/staticfiles
      STATIC_URL=/static/
 
-
+ATTENZIONE: togliere gli spazi a sx quando si fa il copia e incolla per creare il file .env
      
 
 ### Esegui le migrazioni e raccogli statici
