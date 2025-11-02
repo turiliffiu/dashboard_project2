@@ -109,7 +109,6 @@ Ora la struttura del progetto Django sarà disponibile sul server
 
 Scrivi:
 
-
      DEBUG=False
      SECRET_KEY=metti_una_tua_chiave_sicura    
      STATIC_ROOT=/opt/dashboard/staticfiles
@@ -128,6 +127,8 @@ NOTA: il superuser serve per entrare nell'appweb come amministratore quindi, se 
 `python manage.py populate_db` <br>
  
 ### Testa il server Django (verifica che funzioni)
+
+ATTENZIONE: per testare in server in locale devi impostare DEBUG=True sil file `.env`
 `python manage.py runserver 0.0.0.0:8000`
 
 
