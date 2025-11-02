@@ -226,32 +226,96 @@ Dovresti vedere la tua app Django servita tramite Nginx ✅
 
 ## ⚙️ 8️⃣ — Automatizzazione Gunicorn con systemd
 
-Crea un servizio systemd:
+### Passi per configurare:
+Crea la directory per i log (come root):
 
-`sudo nano /etc/systemd/system/gunicorn.service`
+`sudo mkdir -p /var/log/dashboard` <br>
+`sudo chown dashboard:dashboard /var/log/dashboard` <br>
 
+Crea il file systemd (come root):
+`sudo nano /etc/systemd/system/gunicorn.service` <br>
 
-Contenuto:
+Incolla questa configurazione:
 
-       [Unit]
-       Description=Gunicorn service per Django
-       After=network.target
-       
-       [Service]
-       User=www-data
-       Group=www-data
-       WorkingDirectory=/var/www/<nome-repo>
-       Environment="PATH=/var/www/<nome-repo>/venv/bin"
-       ExecStart=/var/www/<nome-repo>/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 nome_progetto.wsgi:application
-       
-       [Install]
-       WantedBy=multi-user.target
+     ini[Unit]
+     Description=Gunicorn daemon for Dashboard Django project
+     After=network.target
+     
+     [Service]
+     Type=notify
+     User=dashboard
+     Group=dashboard
+     WorkingDirectory=/opt/dashboard
+     Environment="PATH=/opt/dashboard/venv/bin"
+     ExecStart=/opt/dashboard/venv/bin/gunicorn \
+               --workers 3 \
+               --bind 127.0.0.1:8000 \
+               --access-logfile /var/log/dashboard/access.log \
+               --error-logfile /var/log/dashboard/error.log \
+               dashboard_project.wsgi:application
+     
+     Restart=on-failure
+     RestartSec=5s
+     
+     [Install]
+     WantedBy=multi-user.target
 
+Salva: CTRL+O → INVIO → CTRL+X
 
-Avvia e abilita:
-
+Ricarica systemd e avvia il servizio:
+`sudo systemctl daemon-reload` <br>
 `sudo systemctl start gunicorn` <br>
 `sudo systemctl enable gunicorn` <br>
 
+Verifica lo stato:
+`sudo systemctl status gunicorn` <br>
 
-Ora Gunicorn partirà automaticamente ad ogni riavvio del server 🎯
+QUI SONO ARRIVATO
+
+Dovresti vedere:
+```
+● gunicorn.service - Gunicorn daemon for Dashboard Django project
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled)
+     Active: active (running) since...
+6. Verifica che sia in ascolto sulla porta 8000:
+bashsudo ss -tlnp | grep 8000
+🔧 Comandi utili per gestire il servizio:
+bash# Avvia
+sudo systemctl start gunicorn
+
+# Ferma
+sudo systemctl stop gunicorn
+
+# Riavvia
+sudo systemctl restart gunicorn
+
+# Stato
+sudo systemctl status gunicorn
+
+# Log in tempo reale
+sudo journalctl -u gunicorn -f
+
+# Log completi
+sudo journalctl -u gunicorn
+
+# Abilita all'avvio
+sudo systemctl enable gunicorn
+
+# Disabilita all'avvio
+sudo systemctl disable gunicorn
+📊 Verifica i log:
+bash# Log di accesso
+tail -f /var/log/dashboard/access.log
+
+# Log degli errori
+tail -f /var/log/dashboard/error.log
+✨ Miglioramenti aggiunti rispetto all'esempio:
+
+✅ Type=notify: Migliore gestione del processo
+✅ Restart=on-failure: Riavvio automatico in caso di crash
+✅ RestartSec=5s: Attende 5 secondi prima di riavviare
+✅ Log separati: Access e error log in file dedicati
+✅ Utente dashboard: Più sicuro di www-data per questo progetto
+
+Ora Gunicorn partirà automaticamente all'avvio del server! 🎉
+Procedi con questi comandi e fammi sapere se tutto funziona! 🚀
