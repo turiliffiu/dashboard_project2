@@ -128,7 +128,7 @@ NOTA: il superuser serve per entrare nell'appweb come amministratore quindi, se 
  
 ### Testa il server Django (verifica che funzioni)
 
-ATTENZIONE: per testare in server in locale devi impostare DEBUG=True sil file `.env`
+ATTENZIONE: per testare in server in locale devi impostare `DEBUG=True` sul file `.env`
 `python manage.py runserver 0.0.0.0:8000`
 
 
