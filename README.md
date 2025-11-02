@@ -229,11 +229,12 @@ Dovresti vedere la tua app Django servita tramite Nginx ✅
 ### Passi per configurare:
 Crea la directory per i log (come root):
 
-`sudo mkdir -p /var/log/dashboard` <br>
-`sudo chown dashboard:dashboard /var/log/dashboard` <br>
+`mkdir -p /var/log/dashboard` <br>
+`chown dashboard:dashboard /var/log/dashboard` <br>
 
 Crea il file systemd (come root):
-`sudo nano /etc/systemd/system/gunicorn.service` <br>
+
+`nano /etc/systemd/system/gunicorn.service` <br>
 
 Incolla questa configurazione:
 
@@ -268,6 +269,7 @@ Ricarica systemd e avvia il servizio:
 `sudo systemctl enable gunicorn` <br>
 
 Verifica lo stato:
+
 `sudo systemctl status gunicorn` <br>
 
 QUI SONO ARRIVATO
