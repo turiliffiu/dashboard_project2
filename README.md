@@ -112,7 +112,7 @@ Scrivi:
 
      DEBUG=False
      SECRET_KEY=metti_una_tua_chiave_sicura
-     ALLOWED_HOSTS=['*']     
+     ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0,*     
      STATIC_ROOT=/opt/dashboard/staticfiles
      STATIC_URL=/static/
 
