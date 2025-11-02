@@ -167,27 +167,34 @@ Inserisci:
      
      server {
          listen 80;
-         server_name 192.168.1.xxx dashboard.local;
+         server_name 192.168.1.xxx dashboard.local;  # Sostituisci xxx con il tuo IP
          
          client_max_body_size 10M;
          
+         # File statici (CSS, JS, immagini)
          location /static/ {
-             alias /opt/dashboard/app/staticfiles/;
+             alias /opt/dashboard/staticfiles/;
              expires 30d;
              add_header Cache-Control "public, immutable";
          }
          
-         location /media/ {
-             alias /opt/dashboard/app/media/;
-             expires 7d;
-         }
-         
+         # Tutte le altre richieste vanno a Gunicorn
          location / {
              proxy_pass http://dashboard;
              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
              proxy_set_header Host $host;
+             proxy_set_header X-Forwarded-Proto $scheme;
              proxy_redirect off;
+             
+             # Timeout per richieste lunghe
+             proxy_connect_timeout 300;
+             proxy_send_timeout 300;
+             proxy_read_timeout 300;
          }
+         
+         # Log
+         access_log /var/log/nginx/dashboard_access.log;
+         error_log /var/log/nginx/dashboard_error.log;
      }
 
 # Attiva la configurazione
