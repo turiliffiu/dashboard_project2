@@ -261,8 +261,6 @@ Incolla questa configurazione:
      [Install]
      WantedBy=multi-user.target
 
-Salva: CTRL+O → INVIO → CTRL+X
-
 Ricarica systemd e avvia il servizio:
 `sudo systemctl daemon-reload` <br>
 `sudo systemctl start gunicorn` <br>
