@@ -155,7 +155,7 @@ Prova a eseguire l’app:
 
 ## 🌐 7️⃣ — Configura Nginx come reverse proxy
 
-Crea un file di configurazione:
+Crea un file di configurazione da utente `root`:
 
 `sudo nano /etc/nginx/sites-available/dashboard`
 
