@@ -262,6 +262,7 @@ Incolla questa configurazione:
      WantedBy=multi-user.target
 
 Ricarica systemd e avvia il servizio:
+
 `sudo systemctl daemon-reload` <br>
 `sudo systemctl start gunicorn` <br>
 `sudo systemctl enable gunicorn` <br>
