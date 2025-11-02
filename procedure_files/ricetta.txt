@@ -1,7 +1,0 @@
-[Ricetta]
-Crema bianca
-
-COMANDO: Ingredienti
-Latte
-Amido
-Zucchero
