@@ -123,6 +123,8 @@ ATTENZIONE: togliere gli spazi a sx quando si fa il copia e incolla per creare i
 `python manage.py migrate` <br>
 `python manage.py collectstatic --noinput` <br>
 `python manage.py createsuperuser` <br>
+
+NOTA: il superuser serve per entrare nell'appweb come amministratore quindi, se si vuole, si può usare come nome `admin`
  
 ### Testa il server Django (verifica che funzioni)
 `python manage.py runserver 0.0.0.0:8000`
