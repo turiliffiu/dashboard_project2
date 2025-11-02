@@ -27,15 +27,18 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
 🧩 Automatizzare l’avvio con systemd
 
 ## 🪟 1️⃣ — Preparare il server su Proxmox
-### Crea una VM Ubuntu/Debian:
-
-- CPU: 2 core
-
-- RAM: 2–4 GB
-
-- Disco: 10–20 GB
-
-- Rete: NAT o Bridge con IP statico
+### Crea un Container Ubuntu:
+     
+      - arch: amd64
+      - cores: 1
+      - features: nesting=1
+      - hostname: dashboard
+      - memory: 2048
+      - net0: name=eth0,bridge=vmbr0,firewall=1,ip=dhcp
+      - ostype: ubuntu
+      - rootfs: local-lvm,size=20G
+      - swap: 2048
+      - unprivileged: 1
 
 ## 🧰 2️⃣ — Installare i pacchetti necessari
 ### SSH nella VM
