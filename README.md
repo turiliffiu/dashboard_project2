@@ -206,6 +206,16 @@ Inserisci:
 `sudo systemctl restart nginx` <br>
 `sudo systemctl status nginx` <br>
 
+Torna all'utente dashboard:
+
+`cd /opt/dashboard` <br>
+`source venv/bin/activate` <br>  
+
+Avvia Gunicorn:
+
+`gunicorn --bind 127.0.0.1:8000 --workers 3 dashboard_project.wsgi:application` <br>
+
+
 Controlla se funziona aprendo:
 
 `http://IP_del_server`
