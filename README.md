@@ -109,10 +109,10 @@ Ora la struttura del progetto Django sarà disponibile sul server
 
 Scrivi:
 
-`DEBUG=False` <br>
-`SECRET_KEY=metti_una_chiave_sicura` <br>
-`ALLOWED_HOSTS=127.0.0.1,localhost,tuo-dominio.com` <br>
-`DATABASE_URL=sqlite:///db.sqlite3` <br>
+     DEBUG=False
+     SECRET_KEY=metti_una_tua_chiave_sicura
+     ALLOWED_HOSTS=['*']
+     DATABASE_URL=sqlite:///db.sqlite3
 
 ### Esegui le migrazioni e raccogli statici
 `python manage.py migrate` <br>
