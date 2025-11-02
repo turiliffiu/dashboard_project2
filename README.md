@@ -263,13 +263,13 @@ Incolla questa configurazione:
 
 Ricarica systemd e avvia il servizio:
 
-`sudo systemctl daemon-reload` <br>
-`sudo systemctl start gunicorn` <br>
-`sudo systemctl enable gunicorn` <br>
+`systemctl daemon-reload` <br>
+`systemctl start gunicorn` <br>
+`systemctl enable gunicorn` <br>
 
 Verifica lo stato:
 
-`sudo systemctl status gunicorn` <br>
+`systemctl status gunicorn` <br>
 
 QUI SONO ARRIVATO
 
