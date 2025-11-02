@@ -197,7 +197,7 @@ Inserisci:
          error_log /var/log/nginx/dashboard_error.log;
      }
 
-# Attiva la configurazione
+## Attiva la configurazione
 `ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
 `rm /etc/nginx/sites-enabled/default` <br>
 `chmod -R 755 /opt/dashboard/staticfiles` <br>
