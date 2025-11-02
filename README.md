@@ -148,7 +148,7 @@ Interrompi il server di sviluppo (CTRL+C) e installa Gunicorn:
 
 Prova a eseguire l’app:
 
-`gunicorn --bind 0.0.0.0:8000 nome_progetto.wsgi`
+`gunicorn --bind 0.0.0.0:8000 dashboard_project.wsgi`
 
 
 (sostituisci nome_progetto con quello della tua cartella Django principale — quella dove c’è settings.py)
