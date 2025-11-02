@@ -109,10 +109,24 @@ Ora la struttura del progetto Django sarà disponibile sul server
 
 Scrivi:
 
+     # -----------------------------
+     # DJANGO SETTINGS
+     # -----------------------------
      DEBUG=False
      SECRET_KEY=metti_una_tua_chiave_sicura
-     ALLOWED_HOSTS=['*']
-     DATABASE_URL=sqlite:///db.sqlite3
+     ALLOWED_HOSTS=['*']     
+
+     
+     # -----------------------------
+     # STATIC & MEDIA FILES
+     # -----------------------------
+     STATIC_ROOT=/opt/dashboard/staticfiles
+     MEDIA_ROOT=/opt/dashboard/media
+     STATIC_URL=/static/
+     MEDIA_URL=/media/
+
+
+     
 
 ### Esegui le migrazioni e raccogli statici
 `python manage.py migrate` <br>
