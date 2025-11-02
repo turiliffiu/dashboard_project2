@@ -87,9 +87,8 @@ Modificare i seguneti parametri:
 `sudo su - dashboard` <br>
 
 ### 2. Clona repository
-     cd /opt/dashboard
-
-     git clone https://github.com/turiliffiu/dashboard_project2.git .
+`cd /opt/dashboard` <br>
+`git clone https://github.com/turiliffiu/dashboard_project2.git .` <br>
 
 Ora la struttura del progetto Django sarà disponibile sul server
 
