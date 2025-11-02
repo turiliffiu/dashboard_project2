@@ -40,6 +40,16 @@ Dashboard è un'applicazione web che permette di conservare e riutilizzare delle
       - swap: 2048
       - unprivileged: 1
 
+Sulla shell del nuovo Container su Proxmox:
+
+`sudo nano /etc/ssh/sshd_config` <br>
+
+Modificare i seguneti parametri:
+
+     PermitRootLogin yes
+     PasswordAuthentication yes
+     PermitEmptyPasswords no
+          
 ## 🧰 2️⃣ — Installare i pacchetti necessari
 ### SSH nella VM
 `ssh admin@192.168.1.xxx` <br>
