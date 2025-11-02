@@ -109,16 +109,10 @@ Ora la struttura del progetto Django sarà disponibile sul server
 
 Scrivi:
 
-     # -----------------------------
-     # DJANGO SETTINGS
-     # -----------------------------
+
      DEBUG=False
      SECRET_KEY=metti_una_tua_chiave_sicura
      ALLOWED_HOSTS=['*']     
-
-     # -----------------------------
-     # STATIC & MEDIA FILES
-     # -----------------------------
      STATIC_ROOT=/opt/dashboard/staticfiles
      STATIC_URL=/static/
 
