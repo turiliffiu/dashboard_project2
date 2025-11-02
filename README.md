@@ -115,8 +115,7 @@ Scrivi:
      STATIC_ROOT=/opt/dashboard/staticfiles
      STATIC_URL=/static/
 
-ATTENZIONE: togliere gli spazi a sx quando si fa il copia e incolla per creare il file .env
-     
+ATTENZIONE: togliere gli spazi a sx quando si fa il copia e incolla per creare il file `.env` e inserire una propria SECRET_KEY
 
 ### Esegui le migrazioni e raccogli statici
 `python manage.py migrate` <br>
