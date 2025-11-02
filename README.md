@@ -83,6 +83,7 @@ Modificare i seguneti parametri:
 
 ## 🧬 3️⃣ — Clonare il progetto da GitHub
 ### 1. Diventa utente dashboard
+`sudo usermod -s /bin/bash dashboard` <br>
 `sudo su - dashboard` <br>
 
 ### 2. Clona repository
