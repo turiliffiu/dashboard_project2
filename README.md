@@ -199,8 +199,12 @@ Inserisci:
 
 # Attiva la configurazione
 `sudo ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/` <br>
+`sudo rm /etc/nginx/sites-enabled/default` <br>
+`sudo chmod -R 755 /opt/dashboard/staticfiles` <br>
+`sudo chown -R dashboard:dashboard /opt/dashboard/staticfiles` <br>
 `sudo nginx -t` <br>
 `sudo systemctl restart nginx` <br>
+`sudo systemctl status nginx` <br>
 
 Controlla se funziona aprendo:
 
