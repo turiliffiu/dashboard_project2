@@ -116,7 +116,6 @@ Scrivi:
      SECRET_KEY=metti_una_tua_chiave_sicura
      ALLOWED_HOSTS=['*']     
 
-     
      # -----------------------------
      # STATIC & MEDIA FILES
      # -----------------------------
